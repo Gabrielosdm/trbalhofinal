@@ -5,53 +5,93 @@
     <title>DEFMOTORS</title>
     <style>
 
-    h2{position:absolute;
-    left: 370px;
-    top: 200px;
-    color:#001051;
-    font-family:arial;
-    }
+        * { margin: 0; padding: 0; }
+        .cabecalho{
+            padding: 20px;
+            padding-left: 50px;
+            box-sizing: border-box;
+            background-color: white;
+            padding-bottom: 10px;
+        }
+        #logo{
+            font-size: 60px;
+            font-family: "Calibri Bold";
+            color: #001051;
+            text-align: left;
+        }
+        #menu{
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            font-family:verdana;
+            align:center;
+        }
+        #login{
+            font-size: 16px;
+            float: right;
+            box-sizing: border-box;
+            background-color: #ECF1F4;
+            padding: 10px;
+            color: black;
+            text-align: right;
+            font-family:verdana;
+        }
+        #botao {
+            background-color: #001051;
+            border: none;
+            color: white;
+            padding: 5px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #titulocar{position:absolute;
+            font-size:80px;
+            font-family:arial bold;
+            }
 
-    #login{width: 200px;
-        height: 130px;
-        font-family:arial;
-        color:white;
-        position:absolute;
-        left: 1050px;
-        top: 30px;}
-
-    #titulo{position:absolute;
-        left: 380px;
-        font-size:300%;
-        font-family:arial;
-        color:#001051;}
-
-    #botao {
-      background-color: #001051;
-      border: none;
-      color: white;
-      padding: 5px 20px;
-      text-align: center;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
+        #container {
+            position: relative;
+            text-align: center;
+            color: black;
+        }
+        #frasebaixo {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+        }
 </style>
-
 
 </head>
 <body>
-        <h1 id="titulo">DefMotors</h1>
-    <h2>Melhores carros esportivos</h2>
 
-    <form id="login" action="/funcio_page" method="post" align="center" style="background-color:#EFEFEF">
-        <br><input type="text" placeholder="Login" name="nome"><br>
-        <br><input type="text" placeholder="Senha" name="senha"><br>
-        <input id="botao" type="submit" value="entrar">
-    </form>
+    <div class="cabecalho">
+        <header>
+            <table>
+                <tr>
+                    <td><div id="logo">DefMotors</div></td>
+                    <td><div id="menu">
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>Buscar: <input type="text" placeholder="Pesquise" name="busca"></label>
+                    </div></td>
+                    <td>
 
-
-
+                    </td>
+                </tr>
+                        <div id="login">
+                            <form action="/funcio_page" method="post">
+                                Login: <input type="text" placeholder="login" name="nome"><br>
+                                <br>Senha: <input type="password" placeholder="senha" name="senha"><br>
+                                <input id="botao" type="submit" value="entrar">
+                            </form>
+                        </div>
+            </table>
+        </header>
+    </div>
+    <div id="container">
+        <img scr="https://files1.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-banner-ww-e-performance-kw33/normal/b37effe6-9a09-11e8-8d30-0019999cd470/porsche-normal.jpg" style="width:100%;>
+        <div id="frasebaixo">Família Porsche</div>
+    </div>
 </body>
 </html>
