@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carros</title>
+</head>
+<body>
+<h1>Carros</h1>
+    <table border="3">
+    <tr>
+            <td>Nome</td>
+            <td>Marca</td>
+            <td>Ano </td>
+            <td>Cor</td>
+            <td>Preço</td>
+
+            </tr>
+        {% for car in carros %}
+            <tr>
+                <td>{{car[0]}}</td>
+                <td>{{car[1]}}</td>
+                <td>{{car[2]}}</td>
+                <td>{{car[3]}}</td>
+                <td>{{car[4]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Adicionar Carro</h1>
+    <form id="inclur_car", action="/confirmar_anuncio", method="POST">
+        <p>
+            <label>
+                Nome:
+            </label>
+            <input type="text" name="nomecar">
+        </p>
+         <p>
+            <label>
+                Marca:
+            </label>
+            <input type="text" name="marcacar">
+        </p>
+         <p>
+            <label>
+                Ano:
+            </label>
+            <input type="text" name="anocar">
+        </p>
+         <p>
+            <label>
+                Cor:
+            </label>
+            <input type="text" name="corcar">
+        </p>
+        <p>
+            <label>
+                Preço:
+            </label>
+            <input type="text" name="precocar"><br>
+
+            <input type="submit" name="add_carbt" value="Adicionar">
+        </p>
+    </form>
+</body>
+</html>

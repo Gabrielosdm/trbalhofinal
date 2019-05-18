@@ -41,6 +41,62 @@ def logar():
     else:
         return render_template('home.html')
 
+@app.route('/incluir_anuncio')
+def Incluir_anuncio():
+    cursor = mysql.get_db().cursor()
+    return render_template('adicionar_carro.html',carros=get_carros(cursor))
+
+
+@app.route('/confirmar_anuncio', methods=['GET','POST'])
+def incluindo_anuncio():
+    if request.method == 'POST':
+        nomecarro=request.form.get('nomecar')
+        marcacarro=request.form.get('marcacar')
+        anocarro=request.form.get('anocar')
+        corcarro=request.form.get('corcar')
+        precocarro=request.form.get('precocar')
+
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,precocarro)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('adicionar_carro.html')
+    else:
+        return render_template('homefuncionario.html')
+
+@app.route('/sem_carro')
+def Excluir_carro():
+    cursor = mysql.get_db().cursor()
+    return render_template('excluir_anuncio.html',carros=get_carros(cursor))
+
+@app.route('/excluido_anuncio', methods=['GET','POST'])
+def excluindo_anuncio():
+    if request.method == 'POST':
+        idcar=request.form.get('ex_carro')
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        excluir_anuncio(cursor,conn,idcar)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('excluir_anuncio.html')
+    else:
+        return render_template('homefuncionario.html')
+
+
+
+@app.route('/all_carros')
+def all_cars():
+    cursor = mysql.get_db().cursor()
+    return render_template('todos_carros.html', carros=get_carros(cursor))
 
 
 

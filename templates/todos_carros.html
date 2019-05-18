@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carros</title>
+</head>
+<body>
+<h1>Carros</h1>
+    <table border="3">
+    <tr>
+            <td>Nome</td>
+            <td>Marca</td>
+            <td>Ano </td>
+            <td>Cor</td>
+            <td>Preço</td>
+
+            </tr>
+        {% for car in carros %}
+            <tr>
+                <td>{{car[0]}}</td>
+                <td>{{car[1]}}</td>
+                <td>{{car[2]}}</td>
+                <td>{{car[3]}}</td>
+                <td>{{car[4]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
