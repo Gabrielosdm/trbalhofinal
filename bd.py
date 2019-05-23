@@ -10,13 +10,16 @@ def validarlogin(cursor, nome, senha):
     # Retornar os dados
     return funcionarios
 
-def incluir_anuncio(cursor,conn,nome,marca,ano,cor,preco):
-    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco) VALUES ("{nome}","{marca}","{ano}","{cor}","{preco}")')
+def incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,precocar):
+    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco) VALUES ("{nomecar}","{marcacar}","{anocar}","{corcar}","{precocar}")')
     conn.commit()
 
-def excluir_anuncio(cursor,conn,idcarro):
-    print(idcarro)
-    cursor.execute(f'DELETE FROM concessionaria.carros WHERE idcarro = "{idcarro}')
+def excluir_anuncio(cursor,conn,carroid):
+    cursor.execute(f'DELETE FROM concessionaria.carros WHERE idcarros = "{carroid}"')
+    conn.commit()
+
+def incluir_usuario(cursor, conn, login, senha):
+    cursor.execute(f'INSERT into concessionaria.funcionarios (nome,senha) VALUES ("{login}","{senha}")')
     conn.commit()
 
 def get_carros(cursor):

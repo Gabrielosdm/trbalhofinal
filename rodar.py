@@ -77,12 +77,12 @@ def Excluir_carro():
 @app.route('/excluido_anuncio', methods=['GET','POST'])
 def excluindo_anuncio():
     if request.method == 'POST':
-        idcar=request.form.get('ex_carro')
+        iddocarro = request.form.get('iddocarro')
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        excluir_anuncio(cursor,conn,idcar)
+        excluir_anuncio(cursor,conn,iddocarro)
 
         cursor.close()
         conn.close()
@@ -91,7 +91,27 @@ def excluindo_anuncio():
     else:
         return render_template('homefuncionario.html')
 
+@app.route('/incluir_usuario')
+def incluir_usu():
+    return render_template('incluir_user.html')
 
+@app.route('/incluso')
+def incluindo():
+    if request.method == 'POST':
+        nlogin = request.form.get('nlogin')
+        nsenha = request.form.get('nsenha')
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        incluir_usuario(cursor, conn, nlogin, nsenha)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluir_user.html')
+    else:
+        return render_template('homefuncionario.html')
 
 @app.route('/all_carros')
 def all_cars():
