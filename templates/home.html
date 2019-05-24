@@ -57,12 +57,8 @@
             text-align: center;
             color: black;
         }
-        #frasebaixo {
-            position: absolute;
-            bottom: 8px;
-            left: 16px;
-        }
-</style>
+
+    </style>
 
 </head>
 <body>
@@ -73,25 +69,29 @@
                 <tr>
                     <td><div id="logo">DefMotors</div></td>
                     <td><div id="menu">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>Buscar: <input type="text" placeholder="Pesquise" name="busca"></label>
+                    <form action="/consultacarros" method="post">
+                        Buscar <input type="text" name="buscando"><br>
+                        <input type="submit" value="Buscar"><br>
+                        {% if error %}
+                        <span style="color:red">{{error}}</span><br>
+                        {% endif %}
+
+                    </form>
                     </div></td>
                     <td>
 
                     </td>
                 </tr>
-                        <div id="login">
-                            <form action="/funcio_page" method="post">
-                                Login: <input type="text" placeholder="login" name="nome"><br>
-                                <br>Senha: <input type="password" placeholder="senha" name="senha"><br>
-                                <input id="botao" type="submit" value="entrar">
-                            </form>
-                        </div>
+                    <div id="login">
+                        <form action="/funcio_page" method="post">
+                            Login: <input type="text" placeholder="login" name="nome"><br>
+                            <br>Senha: <input type="password" placeholder="senha" name="senha"><br>
+                            <input id="botao" type="submit" value="entrar">
+                        </form>
+                    </div>
             </table>
         </header>
     </div>
-    <div id="container">
-        <img scr="https://files1.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-banner-ww-e-performance-kw33/normal/b37effe6-9a09-11e8-8d30-0019999cd470/porsche-normal.jpg" style="width:100%;>
-        <div id="frasebaixo">Família Porsche</div>
-    </div>
+
 </body>
 </html>

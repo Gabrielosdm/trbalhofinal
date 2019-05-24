@@ -95,7 +95,7 @@ def excluindo_anuncio():
 def incluir_usu():
     return render_template('incluir_user.html')
 
-@app.route('/incluso')
+@app.route('/incluso', methods=['GET','POST'])
 def incluindo():
     if request.method == 'POST':
         nlogin = request.form.get('nlogin')
@@ -112,6 +112,20 @@ def incluindo():
         return render_template('incluir_user.html')
     else:
         return render_template('homefuncionario.html')
+
+@app.route('/consultacarros', methods=['GET', 'POST'])
+def consultacarros():
+    if request.method == 'POST':
+        buscando = request.form.get('buscando')
+        cursor = mysql.get_db().cursor()
+        teste = consultar_carros(cursor, buscando)
+        if teste is None:
+            return render_template('home.html', error='Nada encontrado!')
+        else:
+            cursor = mysql.get_db().cursor()
+            return render_template('buscado_carro.html', consulta=consultar_carros(cursor, buscando))
+    return
+
 
 @app.route('/all_carros')
 def all_cars():

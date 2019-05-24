@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DefMotors</title>
+</head>
+<body>
+    <table border="4">
+        {% for consul in consulta %}
+            <tr>
+                <td>{{consul}}</td>
+            </tr>
+        {% endfor %}
+    </table><br><br>
+    <form action="/">
+        <input type="submit" value="Ir para o início"><br>
+    </form>
+</body>
+</html>

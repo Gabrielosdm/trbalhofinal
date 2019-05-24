@@ -22,6 +22,11 @@ def incluir_usuario(cursor, conn, login, senha):
     cursor.execute(f'INSERT into concessionaria.funcionarios (nome,senha) VALUES ("{login}","{senha}")')
     conn.commit()
 
+def consultar_carros(cursor, buscando):
+    cursor.execute(f'SELECT nome FROM carros WHERE nome = "{buscando}" or marca = "{buscando}"')
+    consulta = cursor.fetchall()
+    cursor.close()
+    return consulta
 def get_carros(cursor):
 
     # Executar o SQL
