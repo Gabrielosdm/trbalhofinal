@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>DefMotors</title>
     <style type="text/css">
 
@@ -22,36 +23,32 @@
             font-size:70px;
         }
 
-        #cabecalho{
-            position:absolute;
-            padding: 15px;
-            padding-left: 50px;
-            box-sizing: border-box;
-            background-color:#F5F5F5;
-            padding-bottom: 10px;
-            border-bottom: 2px solid  #F8F8FF
-        }
         #logo{
+            position:absolute;
             font-size: 60px;
-            font-family: "Trebuchet MS",Verdana,Helvetica;
+            font-family:Helvetica;
+            top:25px;
+            left:60px;
             color: #000000;
             text-align: left;
         }
-        #menu{
+        #buscar{
+            position:absolute;
             color: black;
             font-size: 16px;
-            padding-left:380px;
             text-align: right;
+            left:750px;
+            top:80px;
             font-family:"Trebuchet MS",Verdana,Helvetica;
         }
         #login{
-            font-size: 16px;
-            float: right;
-            box-sizing: border-box;
-            background-color: #E0EEEE;
-            padding: 10px;
+            position:absolute;
+            font-size: 14px;
+            background-color:	#E8E8E8;
+            padding:10px;
+            left:990px;
             color: black;
-            text-align: right;
+            text-align:center;
             font-family:Helvetica,Verdana,Arial;
         }
         #botao {
@@ -61,7 +58,8 @@
             padding: 5px 20px;
             text-align: center;
             display: inline-block;
-            font-size: 16px;
+            font-size: 15px;
+            border-radius:2px;
             margin: 4px 2px;
             cursor: pointer;
         }
@@ -73,10 +71,13 @@
         }
         .flip-card {
             position:relative;
-            top:750px;
+            top:710px;
             background-color: transparent;
-            width: 460px;
-            height: 300px;
+            width: 420px;
+            height: 270px;
+            margin-left:1px;
+            margin-top:1px;
+            float:left;
             perspective: 1000px;
         }
         .flip-card2 {
@@ -123,53 +124,60 @@
             position:absolute;
             font-family:Arial;
             font-size:40px;
-            top:650px;
-            left:540px;
-            color:#363636;
+            top:640px;
+            left:520px;
+            color:black;
         }
+        .btn {
+            background-color:#6E7B8B;
+            border: none;
+            color: white;
+            padding: 6px 8px;
+            font-size: 16px;
+            border-radius:1px;
+            cursor: pointer;
+        }
+        .text{
+            padding:5px;
+            margin-top: 2px;
+            font-size: 14px;
+           }
+
 
     </style>
 
 </head>
 <body>
+    <div id="logo">DefMotors</div>
 
-    <div id="cabecalho">
-        <header>
-            <table>
-                <tr>
-                    <td><div id="logo">DefMotors</div></td>
-                    <td><div id="menu">
-                    <form id="busca" action="/consultacarros" method="post">
-                        Buscar <input type="text" name="buscando">
-                        <input type="submit" value="Pesquisar">
-                    </form>
-                    </div></td>
-                    <td>
-
-                    </td>
-                </tr>
-                    <div id="login">
-                        <form action="/funcio_page" method="post">
-                            Login: <input type="text" placeholder="login" name="nome"><br>
-                            <br>Senha: <input type="password" placeholder="senha" name="senha"><br>
-                            <input id="botao" type="submit" value="entrar">
-                        </form>
-                    </div>
-            </table>
-        </header>
+    <div id="buscar">
+        <form id="busca" action="/consultacarros" method="post">
+            <input class="text" placeholder="Buscar Carro..." type="text" name="buscando">
+            <button class="btn"><i class="fa fa-search"></i></button>
+        </form>
     </div>
+
+    <div id="login">
+        <form action="/funcio_page" method="post">
+            <input class="text" type="text" placeholder="Nome" name="nome"><br>
+            <br><input class="text" type="password" placeholder="Senha" name="senha"><br>
+            <input id="botao" type="submit" value="entrar">
+        </form>
+    </div>
+
     <div>
         <img id="bg" src="https://files1.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-banner-ww-e-performance-kw33/normal/b37effe6-9a09-11e8-8d30-0019999cd470/porsche-normal.jpg">
         <div id="titu">Rumo ao Futuro.</div>
     </div>
+
     <div id="fala_top10">
-        Top 10
+        Mais Vendidos
     </div>
 {% for car in carros %}
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="https://www.carpixel.net/w/756a7b32b847300cc2b5cea2945ac1c6/tesla-roadster-car-wallpaper-74577.jpg" style="width:460px;height:300px;">
+                <img src="https://www.carpixel.net/w/756a7b32b847300cc2b5cea2945ac1c6/tesla-roadster-car-wallpaper-74577.jpg" style="width:420px;height:270px;">
             </div>
             <div class="flip-card-back">
                 <h1>{{car[0]}}</h1>
@@ -180,21 +188,6 @@
                 <form action="/all_carros">
                     <input type="submit" value="Comprar">
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="http://paperlief.com/images/bmw-m6-2015-wallpaper-2.jpg" style="width:460px;height:300px;">
-            </div>
-            <div class="flip-card-back">
-                <h1>{{car[0]}}</h1>
-                <p>{{car[1]}}</p>
-                <p>{{car[2]}}</p>
-                <p>{{car[3]}}</p>
-                <p>{{car[4]}}</p>
             </div>
         </div>
     </div>
