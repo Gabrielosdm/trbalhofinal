@@ -12,12 +12,13 @@ mysql.init_app(app)
 
 # Configurando o acesso ao MySQL
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 
 @app.route('/')
 def principal():
-    return render_template('home.html')
+    cursor = mysql.get_db().cursor()
+    return render_template('home.html', carros=get_carros(cursor))
 
 @app.route('/funcio_page', methods=['GET','POST'])
 def logar():
@@ -113,6 +114,29 @@ def incluindo():
     else:
         return render_template('homefuncionario.html')
 
+@app.route('/excluir_funcionario')
+def excluir_funcio():
+    return render_template('excluir_usuario.html')
+
+@app.route('/excluido_func', methods=['GET','POST'])
+def excluindo_funcionarios():
+    if request.method == 'POST':
+        iddofuncio = request.form.get('iddofuncio')
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        excluir_user(cursor,conn,iddofuncio)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('excluir_usuario.html')
+    else:
+        return render_template('homefuncionario.html')
+
+
+
 @app.route('/consultacarros', methods=['GET', 'POST'])
 def consultacarros():
     if request.method == 'POST':
@@ -120,7 +144,7 @@ def consultacarros():
         cursor = mysql.get_db().cursor()
         teste = consultar_carros(cursor, buscando)
         if teste is None:
-            return render_template('home.html', error='Nada encontrado!')
+            return render_template('home.html')
         else:
             cursor = mysql.get_db().cursor()
             return render_template('buscado_carro.html', consulta=consultar_carros(cursor, buscando))

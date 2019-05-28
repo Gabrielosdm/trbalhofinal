@@ -22,6 +22,11 @@ def incluir_usuario(cursor, conn, login, senha):
     cursor.execute(f'INSERT into concessionaria.funcionarios (nome,senha) VALUES ("{login}","{senha}")')
     conn.commit()
 
+def excluir_user(cursor,conn,funcid):
+    cursor.execute(f'DELETE FROM concessionaria.funcionarios WHERE idfuncionarios = "{funcid}"')
+    conn.commit()
+
+
 def consultar_carros(cursor, buscando):
     cursor.execute(f'SELECT nome FROM carros WHERE nome = "{buscando}" or marca = "{buscando}"')
     consulta = cursor.fetchall()
