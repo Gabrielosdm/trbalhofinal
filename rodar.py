@@ -73,7 +73,7 @@ def incluindo_anuncio():
 @app.route('/sem_carro')
 def Excluir_carro():
     cursor = mysql.get_db().cursor()
-    return render_template('excluir_anuncio.html',carros=get_carros(cursor))
+    return render_template('adicionar_carro.html')
 
 @app.route('/excluido_anuncio', methods=['GET','POST'])
 def excluindo_anuncio():
@@ -88,7 +88,7 @@ def excluindo_anuncio():
         cursor.close()
         conn.close()
 
-        return render_template('excluir_anuncio.html')
+        return render_template('adicionar_carro.html')
     else:
         return render_template('homefuncionario.html')
 

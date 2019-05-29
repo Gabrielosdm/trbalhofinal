@@ -2,64 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Carros</title>
+    <style>
+        * { margin: 0; padding: 0; }
+
+        h1{
+            position:absolute;
+            font-family:Helvetica;
+            font-size: 30;
+            left:40%;
+            top:6%;
+            color:white;
+        }
+        h2{
+            position:absolute;
+            font-family:Helvetica;
+            left:17%;
+            top:10%;
+            color:white;
+        }
+        #incluir{
+            position:absolute;
+            top:20%;
+            left:38%;
+            text-align:center;
+            padding:2.3%;
+            border-radius:3px;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+        }
+        #excar{
+            position:absolute;
+            top:20%;
+            left:7%;
+            text-align:center;
+            padding:1%;
+            padding-top:2%;
+            border-radius:2%;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+
+        }
+        .text{
+            position:relative;
+            padding:8px;
+            margin-top: 1px;
+            font-size: 16px;
+            border:none;
+            border-radius:8px;
+        }
+        #ex_text {
+            position:relative;
+            padding:8px;
+            margin-top: 10%;
+            font-size: 16px;
+            border:none;
+            border-radius:8px;
+        }
+        #foto {
+            position:absolute;
+            left:800px;
+            top:330px;
+        }
+        #dado{
+            position:relative;
+            color:white;
+            font-weight: bold;
+        }
+
+        #btn {
+            border-radius: 2px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color:#000080;
+        }
+
+        #btn2 {
+            border-radius: 2px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 130px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #btn2:hover {
+            background-color:#000080;
+        }
+
+
+</style>
 </head>
-<body>
-<h1>Carros</h1>
-    <table border="3">
-    <tr>
-            <td>Nome</td>
-            <td>Marca</td>
-            <td>Ano </td>
-            <td>Cor</td>
-            <td>Preço</td>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
 
-            </tr>
-        {% for car in carros %}
-            <tr>
-                <td>{{car[0]}}</td>
-                <td>{{car[1]}}</td>
-                <td>{{car[2]}}</td>
-                <td>{{car[3]}}</td>
-                <td>{{car[4]}}</td>
-            </tr>
-        {% endfor %}
-    </table>
+        <img id="foto" src="https://4.bp.blogspot.com/-Lu5f5adonoU/WNUdA4R96QI/AAAAAAAAmp0/gJvBKMpdJ100-8L9g51ExBxGXhkgfRcVACLcB/s1600/audi_PNG1770.png">
 
-    <h1>Adicionar Carro</h1>
-    <form id="inclur_car", action="/confirmar_anuncio", method="POST">
-        <p>
-            <label>
-                Nome:
-            </label>
-            <input type="text" name="nomecar">
-        </p>
-         <p>
-            <label>
-                Marca:
-            </label>
-            <input type="text" name="marcacar">
-        </p>
-         <p>
-            <label>
-                Ano:
-            </label>
-            <input type="text" name="anocar">
-        </p>
-         <p>
-            <label>
-                Cor:
-            </label>
-            <input type="text" name="corcar">
-        </p>
-        <p>
-            <label>
-                Preço:
-            </label>
-            <input type="text" name="precocar"><br>
+        <h1>Adicionar Carro</h1>
 
-            <input type="submit" name="add_carbt" value="Adicionar">
-        </p>
-    </form>
+        <form id="incluir", action="/confirmar_anuncio", method="POST">
+
+                <label id="dado">INSERIR DADOS DO CARRO</label><br>
+
+                <br><input class="text" type="text" placeholder="Nome" name="nomecar"><br>
+
+                <br><input class="text" type="text" placeholder="Marca" name="marcacar"><br>
+
+                <br><input class="text" type="text" placeholder="Ano" name="anocar"><br>
+
+                <br><input class="text" type="text" placeholder="Cor" name="corcar"><br>
+
+                <br><input class="text" type="text" value="R$" name="precocar"><br>
+
+                <br><input class="text" type="submit" id="btn" name="add_carbt" value="Adicionar">
+        </form>
+
+        <form id="excar", action="/excluido_anuncio", method="post">
+            <h2>Excluir Carro</h2>
+            <br><input id="ex_text" type="text" placeholder="Id do carro" name="iddocarro"><br>
+
+            <br><input  type="submit" id="btn2" name="ex_carro" value="Apagar">
+
+        </form>
 </body>
 </html>
