@@ -10,8 +10,8 @@ def validarlogin(cursor, nome, senha):
     # Retornar os dados
     return funcionarios
 
-def incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,precocar):
-    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco) VALUES ("{nomecar}","{marcacar}","{anocar}","{corcar}","{precocar}")')
+def incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,precocar,top10):
+    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco,top10) VALUES ("{nomecar}","{marcacar}","{anocar}","{corcar}","{precocar}","{top10}")')
     conn.commit()
 
 def excluir_anuncio(cursor,conn,carroid):
@@ -32,10 +32,23 @@ def consultar_carros(cursor, buscando):
     consulta = cursor.fetchall()
     cursor.close()
     return consulta
+
+def edit_top10(cursor,conn,top10,idcarros):
+    cursor.execute(f'UPDATE carros SET top10 = "{top10}" WHERE idcarros= "{idcarros}"')
+    conn.commit()
+
+def pegar_top10(cursor):
+    cursor.execute(f'SELECT * '
+                   'FROM carros WHERE top10 = "1"')
+
+    top10 = cursor.fetchall()
+
+    return top10
+
 def get_carros(cursor):
 
     # Executar o SQL
-    cursor.execute(f'SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.preco FROM carros')
+    cursor.execute(f'SELECT carros.idcarros,carros.nome,carros.marca,carros.ano,carros.cor,carros.preco FROM carros')
 
     # Recuperando o retorno do BD
     carros = cursor.fetchall()

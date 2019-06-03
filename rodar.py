@@ -18,7 +18,7 @@ app.config['MYSQL_DATABASE_DB'] = 'concessionaria'
 @app.route('/')
 def principal():
     cursor = mysql.get_db().cursor()
-    return render_template('home.html', carros=get_carros(cursor))
+    return render_template('home.html', carros=pegar_top10(cursor))
 
 @app.route('/funcio_page', methods=['GET','POST'])
 def logar():
@@ -56,12 +56,18 @@ def incluindo_anuncio():
         anocarro=request.form.get('anocar')
         corcarro=request.form.get('corcar')
         precocarro=request.form.get('precocar')
+        top10 = request.form.get('top_choice')
+
+        if top10 == "Sim":
+            top10 = 1
+        else:
+            top10 = 0
 
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,precocarro)
+        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,precocarro,top10)
 
         cursor.close()
         conn.close()
@@ -146,6 +152,32 @@ def consultacarros():
             return render_template('buscado_carro.html', consulta=consultar_carros(cursor, buscando))
     return
 
+@app.route('/editar_top10')
+def editar_top10():
+    cursor = mysql.get_db().cursor()
+    return render_template('edit_top10.html')
+
+@app.route('/top10_editado', methods=['GET','POST'])
+def top_editado():
+    if request.method == 'POST':
+        idcar=request.form.get('oid')
+        atop10= request.form.get('atop10')
+        if atop10 == "Colocar":
+            top10 = 1
+        else:
+            top10 = 0
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        edit_top10(cursor,conn,top10,idcar)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('edit_top10.html')
+    else:
+        return render_template('homefuncionario.html')
 
 @app.route('/all_carros')
 def all_cars():

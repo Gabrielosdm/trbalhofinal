@@ -22,7 +22,7 @@
         }
         #incluir{
             position:absolute;
-            top:20%;
+            top:18%;
             left:38%;
             text-align:center;
             padding:2.3%;
@@ -32,7 +32,7 @@
         }
         #excar{
             position:absolute;
-            top:20%;
+            top:19%;
             left:7%;
             text-align:center;
             padding:1%;
@@ -100,6 +100,10 @@
         #btn2:hover {
             background-color:#000080;
         }
+        #opçao {
+            font-size:110%;
+            color:white;
+        }
 
 
 </style>
@@ -124,7 +128,16 @@
 
                 <br><input class="text" type="text" value="R$" name="precocar"><br>
 
-                <br><input class="text" type="submit" id="btn" name="add_carbt" value="Adicionar">
+                <br><label id="opçao">
+                Colocar no Top 10?
+                </label>
+                <select name="top_choice">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select><br>
+
+            <br><input class="text" type="submit" id="btn" name="add_carbt" value="Adicionar">
+
         </form>
 
         <form id="excar", action="/excluido_anuncio", method="post">

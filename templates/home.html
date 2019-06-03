@@ -156,7 +156,7 @@
     </div>
 
     <div id="fala_top10">
-        Os Melhores
+        Mais vendidos
     </div>
 {% for car in carros %}
     <div class="flip-card">
@@ -165,13 +165,13 @@
                 <img src="http://paperlief.com/images/bmw-m6-2015-wallpaper-2.jpg" style="width:420px;height:270px;">
             </div>
             <div class="flip-card-back">
-                <h1>{{car[0]}}</h1>
-                <p>{{car[1]}}</p>
+                <h1>{{car[1]}}</h1>
                 <p>{{car[2]}}</p>
                 <p>{{car[3]}}</p>
                 <p>{{car[4]}}</p>
+                <p>{{car[5]}}</p>
                 <form action="/all_carros">
-                    <input type="submit" value="Comprar">
+                    <input type="submit" value="Reservar">
                 </form>
             </div>
         </div>
