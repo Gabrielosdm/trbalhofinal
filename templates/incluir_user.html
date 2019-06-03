@@ -2,25 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Incluir usuario</title>
-</head>
-<body>
-    <h1>Novo usuario</h1>
-    <form id="nlogin", action="/incluso", method="post">
-        <p>
-            <label>
-                Login:
-            </label>
-            <input type="text" name="nlogin">
-        </p>
-        <p>
-            <label>
-                Senha:
-            </label>
-            <input type="password" name="nsenha"><br>
+    <title>DefMotors</title>
 
-            <br><input type="submit" name="add_userbt" value="Adicionar">
-        </p>
+    <style>
+        * { margin: 0; padding: 0; }
+
+        h1{
+            position:absolute;
+            font-family:Helvetica;
+            font-size: 30;
+            left:40.5%;
+            top:6%;
+            color:white;
+        }
+        h2{
+            position:absolute;
+            font-family:Helvetica;
+            left:17%;
+            top:10%;
+            color:white;
+        }
+        #incluir{
+            position:absolute;
+            top:18%;
+            left:38%;
+            text-align:center;
+            padding:2.3%;
+            border-radius:3px;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+        }
+        #excluir{
+            position:absolute;
+            top:18%;
+            left:7%;
+            text-align:center;
+            padding:3%;
+            padding-top:5%;
+            border-radius:2%;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+
+        }
+        #foto {
+            position:absolute;
+            left:62%;
+            top:57%;
+        }
+        #dado{
+            position:relative;
+            color:white;
+            font-weight: bold;
+        }
+
+        #btn {
+            border-radius: 2px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 110%;
+            padding: 4%;
+            width: 50%;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color:#000080;
+        }
+
+        #btn2 {
+            border-radius: 2px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size:110%;
+            padding: 5%;
+            width: 60%;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #btn2:hover {
+            background-color:#000080;
+        }
+        #opçao {
+            font-size:110%;
+            color:white;
+        }
+        .text{
+            position:relative;
+            padding:3%;
+            margin-top: 0.5%;
+            font-size: 105%;
+            border:none;
+            border-radius:8px;
+        }
+        #ex_text {
+            position:relative;
+            padding:4%;
+            margin-top: 10%;
+            font-size: 105%;
+            border:none;
+            border-radius:8px;
+        }
+
+    </style>
+
+</head>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <img id="foto" src="https://4.bp.blogspot.com/-Lu5f5adonoU/WNUdA4R96QI/AAAAAAAAmp0/gJvBKMpdJ100-8L9g51ExBxGXhkgfRcVACLcB/s1600/audi_PNG1770.png">
+
+    <h1>Novo Funcionário</h1>
+
+    <form id="incluir" action="/incluso", method="post">
+
+            <label id="dado">INSERIR DADOS DO FUNCIONÁRIO</label><br>
+
+            <br><input class="text" type="text" placeholder="Nome" holder="" name="nlogin"><br>
+
+            <br><input class="text" type="password" placeholder="Senha" name="nsenha"><br>
+
+            <br><input type="submit" id="btn"name="add_userbt" value="Adicionar">
+
     </form>
+
+    <form id="excluir" action="/excluido_func", method="post">
+        <h2>Excluir Funcionário</h2>
+
+        <input id="ex_text" type="text" placeholder="ID do Funcionário" name="iddofuncio"><br>
+        <br><input type="submit" id="btn2"value="Excluir">
+
+    </form>
+
+
 </body>
 </html>

@@ -2,19 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Carros</title>
+    <title>DefMotors</title>
+
+    <style>
+        * { margin: 0; padding: 0;}
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left:25%;
+            margin-top:7%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr {background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color:#4682B4;
+            color: white;
+        }
+        h1 {
+            position:absolute;
+            margin-left:45%;
+            top:5%;
+            color:white;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+    </style>
 
 </head>
-<body>
-<h1>Carros</h1>
-    <table border="3">
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <h1>Todos os carros</h1>
+
+    <table id="customers">
     <tr>
-            <td>Id carro</td>
-            <td>Nome</td>
-            <td>Marca</td>
-            <td>Ano </td>
-            <td>Cor</td>
-            <td>Preço</td>
+            <th>ID CARRO</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Ano </th>
+            <th>Cor</th>
+            <th>Preço</th>
 
             </tr>
         {% for car in carros %}

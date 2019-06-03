@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Administrador</title>
+    <title>DefMotors</title>
     <style>
 
         * { margin: 0; padding: 0; }
@@ -10,9 +10,9 @@
         h1{
             position:absolute;
             font-family:Helvetica;
-            font-size: 30px;
+            font-size: 30;
             left:35%;
-            top:35px;
+            top:5%;
             color:white;
         }
 
@@ -22,8 +22,8 @@
             border: none;
             color: #FFFFFF;
             text-align: center;
-            font-size: 18px;
-            padding: 10px;
+            font-size: 106%;
+            padding: 4.5%;
             width: 230px;
             transition: all 0.5s;
             cursor: pointer;
@@ -41,12 +41,12 @@
             position: absolute;
             opacity: 0;
             top: 0;
-            right: -20px;
+            right: -15%;
             transition: 0.5s;
         }
 
         .btn:hover span {
-            padding-right: 25px;
+            padding-right: 11%;
         }
 
         .btn:hover span:after {
@@ -55,17 +55,17 @@
         }
         #botoes{
             position:absolute;
-            left:490px;
-            top:100px;
+            left:38%;
+            top:17%;
             background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
-            padding:20px;
+            padding:1.4%;
             border-radius:3px;
         }
 
         #foto {
             position:absolute;
-            left:800px;
-            top:330px;
+            left:62%;
+            top:57%;
         }
 
     </style>
@@ -79,8 +79,7 @@
     <div id="botoes">
         <br><form class="btn" action="/all_carros"><button class="btn"><span>Todos carros</span></button></form>
         <br><form class="btn" action="/incluir_anuncio"><button class="btn"><span>Adicionar/Excluir Carro</span></button></form>
-        <br><form class="btn" action="/incluir_usuario"><button class="btn"><span>Adicionar Funcionário</span></button></form>
-        <br><form class="btn" action="/excluir_funcionario"><button class="btn"><span>Excluir Funcionário</span></button></form>
+        <br><form class="btn" action="/incluir_usuario"><button class="btn"><span>Adicionar/Excluir Funcionário</span></button></form>
         <br><form class="btn" action="/editar_top10"><button class="btn"><span>Editar o Top10</span></button></form>
     </div>
 

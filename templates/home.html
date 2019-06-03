@@ -26,7 +26,7 @@
         #logo{
             position:absolute;
             font-size: 480%;
-            font-family:Helvetica;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             top:3%;
             left:4%;
             color: #000000;
@@ -44,7 +44,7 @@
         #login{
             position:absolute;
             font-size: 100%;
-            background-color:	#E8E8E8;
+            background-color:#E8E8E8;
             padding:0.6%;
             left:79%;
             color: black;
@@ -52,7 +52,7 @@
             font-family:Helvetica,Verdana,Arial;
         }
         #botao {
-            background-color:#3A5FCD;
+            background-color:#104E8B;
             border: none;
             color: white;
             padding: 3.7% 9%;
@@ -63,12 +63,26 @@
             margin: 2.5%;
             cursor: pointer;
         }
+        #botao:hover {
+            background-color:#00008B;
+        }
+        #botao2 {
+            border:none;
+            border-radius:4%;
+            font-size:100%;
+            padding:2%;
+            background-color:#104E8B;
+            color:white;
+        }
+        #botao2:hover {
+            background-color:#006400;
+        }
 
         .flip-card {
             position:relative;
             top:710px;
             background-color: transparent;
-            width: 33.25%;
+            width: 33.22%;
             height: 270px;
             margin-left:0.08%;
             margin-top:0.13%;
@@ -105,6 +119,9 @@
             background-color: #1C1C1C;
             color: white;
             transform: rotateY(180deg);
+            font-family:"Trebuchet MS",Verdana,Helvetica;
+            font-size:120%;
+
         }
         #fala_top10 {
             position:absolute;
@@ -115,18 +132,26 @@
             color:black;
         }
         .btn {
-            background-color:#6E7B8B;
+            background-color:#104E8B;
             border: none;
             color: white;
             padding: 3.5% 10px;
             border-radius:1.5%;
             cursor: pointer;
         }
+        .btn:hover {
+            background-color:#00008B;
+        }
+
         .text{
             padding:5px;
             margin-top: 1%;
             font-size: 14px;
            }
+        #foto-flip {
+            width: 100%;
+            height: 100%;
+        }
 
 
     </style>
@@ -162,16 +187,16 @@
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="http://paperlief.com/images/bmw-m6-2015-wallpaper-2.jpg" style="width:420px;height:270px;">
+                <img id="foto-flip" src="http://paperlief.com/images/bmw-m6-2015-wallpaper-2.jpg">
             </div>
             <div class="flip-card-back">
                 <h1>{{car[1]}}</h1>
-                <p>{{car[2]}}</p>
-                <p>{{car[3]}}</p>
-                <p>{{car[4]}}</p>
-                <p>{{car[5]}}</p>
-                <form action="/all_carros">
-                    <input type="submit" value="Reservar">
+                <br><p>Marca:{{car[2]}}</p>
+                <br><p>Ano: {{car[3]}}</p>
+                <br><p>Cor: {{car[4]}}</p>
+                <br><p>{{car[5]}}</p>
+                <form action="/reservando/{{car[0]}}">
+                    <input id="botao2" type="submit" value="Reservar">
                 </form>
             </div>
         </div>

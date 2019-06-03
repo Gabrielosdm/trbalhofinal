@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DefMotors-reserva</title>
+</head>
+<body>
+    {% for detalhe in detalhes %}
+    <form method="post" action="/reserva_done/{{detalhe[0]}}">
+
+        <label>Nome do comprador: </label><input type="text" name="nomeccomp"><br>
+        <label>CPF: </label><input type="text" name="cpfccomp"><br>
+        <label>E-mail: </label><input type="email" name="emailcomp"><br>
+
+        <input type="submit", value="Confirmar">
+
+    </form>
+    {% endfor %}
+</body>
+</html>

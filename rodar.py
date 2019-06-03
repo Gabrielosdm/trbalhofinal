@@ -57,6 +57,7 @@ def incluindo_anuncio():
         corcarro=request.form.get('corcar')
         precocarro=request.form.get('precocar')
         top10 = request.form.get('top_choice')
+        reservas="0"
 
         if top10 == "Sim":
             top10 = 1
@@ -67,7 +68,7 @@ def incluindo_anuncio():
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,precocarro,top10)
+        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,precocarro,top10,reservas)
 
         cursor.close()
         conn.close()
@@ -118,7 +119,7 @@ def incluindo():
 
 @app.route('/excluir_funcionario')
 def excluir_funcio():
-    return render_template('excluir_usuario.html')
+    return render_template('incluir_user.html')
 
 @app.route('/excluido_func', methods=['GET','POST'])
 def excluindo_funcionarios():
@@ -133,7 +134,7 @@ def excluindo_funcionarios():
         cursor.close()
         conn.close()
 
-        return render_template('excluir_usuario.html')
+        return render_template('incluir_user.html')
     else:
         return render_template('homefuncionario.html')
 
@@ -178,6 +179,32 @@ def top_editado():
         return render_template('edit_top10.html')
     else:
         return render_template('homefuncionario.html')
+
+@app.route('/reservando/<idcarros>', methods={'GET','POST'})
+def reservarr(idcarros):
+    cursor = mysql.get_db().cursor()
+    return render_template('reservar_carro.html', detalhes=pegar_detalhes(cursor,idcarros))
+
+@app.route('/reserva_done/<idcarros>', methods={'GET','POST'})
+def reserva_feita(idcarros):
+    if request.method == 'POST':
+        nomecomp = request.form.get('nomeccomp')
+        cpfccomp = request.form.get('cpfccomp')
+        emailcomp = request.form.get('emailcomp')
+        reserva = "1"
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        reservar(cursor, conn, reserva, idcarros)
+        add_reserva(cursor, conn, nomecomp, cpfccomp, emailcomp)
+
+
+
+        return render_template('home.html', carros=pegar_top10(cursor))
+    else:
+        return render_template('reservar_carro.html')
+
 
 @app.route('/all_carros')
 def all_cars():

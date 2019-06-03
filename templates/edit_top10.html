@@ -2,20 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editar o TOP10</title>
+    <title>DefMotors</title>
+
+    <style>
+        * { margin: 0; padding: 0; }
+
+        h1{
+            position:absolute;
+            font-family:Helvetica;
+            font-size: 30;
+            left:40%;
+            top:6%;
+            color:white;
+        }
+        #foto {
+            position:absolute;
+            left:62%;
+            top:57%;
+        }
+        #edit-top{
+            position:absolute;
+            top:18%;
+            left:35%;
+            text-align:center;
+            padding:1%;
+            border-radius:3px;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+        }
+        #dado{
+            position:relative;
+            color:white;
+            font-weight: bold;
+        }
+        #text{
+            position:relative;
+            padding:1%;
+            margin-top: 1%;
+            font-size: 100%;
+            border:none;
+            border-radius:8px;
+        }
+        #btn {
+            border-radius: 3px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 100%;
+            padding: 2%;
+            width: 35%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin-top:5%;
+        }
+        #btn:hover {
+            background-color:#000080;
+        }
+
+
+    </style>
+
 </head>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
 
-    <form action="/top10_editado" METHOD="post">
-        <h1>Editar TOP10</h1>
-        <label>ID do carro</label>
-        <input type="text" name="oid">
+    <img id="foto" src="https://4.bp.blogspot.com/-Lu5f5adonoU/WNUdA4R96QI/AAAAAAAAmp0/gJvBKMpdJ100-8L9g51ExBxGXhkgfRcVACLcB/s1600/audi_PNG1770.png">
 
-        <label>Top10? :</label>
+    <h1>Editar TOP10</h1>
+
+    <form id="edit-top" action="/top10_editado" METHOD="post">
+
+
+
+        <label id="dado">ID do carro para editar</label><br>
+
+        <br><input id="text" type="text" placeholder=" Id carro" name="oid">
+
         <select name="atop10">
             <option>Colocar</option>
             <option>Tirar</option>
         </select>
-        <input type="submit" name="att_top10" value="Atualizar">
+
+        <br><input type="submit" id="btn" name="att_top10" value="Atualizar">
     </form>
 </body>
 </html>
