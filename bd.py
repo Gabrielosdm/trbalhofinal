@@ -10,8 +10,8 @@ def validarlogin(cursor, nome, senha):
     # Retornar os dados
     return funcionarios
 
-def incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,precocar,top10,reservas):
-    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco,top10,reservas) VALUES ("{nomecar}","{marcacar}","{anocar}","{corcar}","{precocar}","{top10}","{reservas}")')
+def incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,precocar,top10,reservas,url):
+    cursor.execute(f'INSERT into concessionaria.carros (nome,marca,ano,cor,preco,top10,reservas,url) VALUES ("{nomecar}","{marcacar}","{anocar}","{corcar}","{precocar}","{top10}","{reservas}","{url}")')
     conn.commit()
 
 def excluir_anuncio(cursor,conn,carroid):
@@ -28,7 +28,7 @@ def excluir_user(cursor,conn,funcid):
 
 
 def consultar_carros(cursor, buscando):
-    cursor.execute(f'SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.preco FROM carros WHERE nome = "{buscando}"')
+    cursor.execute(f'SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.preco,carros.url FROM carros WHERE nome = "{buscando}"')
     consulta = cursor.fetchall()
     cursor.close()
     return consulta
@@ -64,8 +64,8 @@ def reservar(cursor,conn,reserva,idcar,nome):
     conn.commit()
 
 
-def add_reserva(cursor, conn, nome, cpf, email):
-    cursor.execute(f'INSERT into concessionaria.reservas (nome,cpf,email) VALUES ("{nome}","{cpf}","{email}")')
+def add_reserva(cursor, conn, nome, cpf, email,nomecar):
+    cursor.execute(f'INSERT into concessionaria.reservas (nome,cpf,email,nomecar) VALUES ("{nome}","{cpf}","{email}","{nomecar}")')
     conn.commit()
 
 def get_carros(cursor):
@@ -75,3 +75,24 @@ def get_carros(cursor):
     carros = cursor.fetchall()
 
     return carros
+
+def get_funcio(cursor):
+
+    cursor.execute(f'SELECT  funcionarios.idfuncionarios,funcionarios.nome FROM funcionarios')
+
+    funcionarios = cursor.fetchall()
+
+    return funcionarios
+
+def get_reserva(cursor):
+
+    cursor.execute(f'SELECT  reservas.nome,reservas.cpf,reservas.email,reservas.idcar FROM reservas')
+
+    reserva = cursor.fetchall()
+
+    return reserva
+
+
+def call_imagem(cursor,conn,carro):
+    cursor.execute(f'SELECT url FROM carros WHERE nome = "{carro}"')
+    conn.commit()

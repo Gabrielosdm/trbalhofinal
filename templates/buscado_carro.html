@@ -21,11 +21,11 @@
             border:none;
             border-radius:1%;
             background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
-            padding:3%;
+            padding:2%;
             margin-top:7%;
             margin-left:37%;
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-size:180%;
+            font-size:150%;
             color:white;
         }
         #botao2 {
@@ -41,6 +41,14 @@
         }
         .titu{
             color:black;
+            font-size:150%;
+        }
+        #fotin{
+            position:absolute;
+            width: 53%;
+            height: 65%;
+            margin-top:7%;
+            margin-left:4.5%;
         }
 
     </style>
@@ -50,6 +58,7 @@
 
     <h1>Detalhes do Carro</h1>
     {% for car in carros %}
+    <img id="fotin" src={{ base_url }}{{ car[8] }}>
     <div id="det_car">
         <label class="titu">Nome: </label> {{car[0]}}<br>
         <br><label class="titu">Marca: </label> {{car[1]}}<br>

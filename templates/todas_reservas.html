@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DefMotors</title>
+
+    <style>
+        * { margin: 0; padding: 0;}
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+            margin-left:15%;
+            margin-top:7%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr {background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color:#4682B4;
+            color: white;
+        }
+        h1 {
+            position:absolute;
+            margin-left:40%;
+            top:5%;
+            color:white;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+
+</head>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <h1>Todas as reservas</h1>
+
+    <table id="customers">
+    <tr>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>E-mail</th>
+            <th>ID do carro reservado</th>
+
+            </tr>
+        {% for reser in reserva %}
+            <tr>
+                <td>{{reser[0]}}</td>
+                <td>{{reser[1]}}</td>
+                <td>{{reser[2]}}</td>
+                <td style="width:20%">{{reser[3]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

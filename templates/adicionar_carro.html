@@ -10,8 +10,8 @@
             position:absolute;
             font-family:Helvetica;
             font-size: 30;
-            left:40%;
-            top:6%;
+            left:39%;
+            top:3%;
             color:white;
         }
         h2{
@@ -23,10 +23,10 @@
         }
         #incluir{
             position:absolute;
-            top:18%;
-            left:38%;
+            top:13%;
+            left:36%;
             text-align:center;
-            padding:2.3%;
+            padding:1%;
             border-radius:3px;
             background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
             font-family:Helvetica,Verdana,Arial;
@@ -101,7 +101,7 @@
         #btn2:hover {
             background-color:#000080;
         }
-        #opçao {
+        .opcao {
             font-size:110%;
             color:white;
         }
@@ -115,7 +115,7 @@
 
         <h1>Adicionar Carro</h1>
 
-        <form id="incluir", action="/confirmar_anuncio", method="POST">
+        <form id="incluir", action="/confirmar_anuncio", method="POST" enctype=multipart/form-data>
 
                 <label id="dado">INSERIR DADOS DO CARRO</label><br>
 
@@ -129,7 +129,7 @@
 
                 <br><input class="text" type="text" value="R$" name="precocar"><br>
 
-                <br><label id="opçao">
+                <br><label class="opcao">
                 Colocar no Top 10?
                 </label>
                 <select name="top_choice">
@@ -137,6 +137,8 @@
                     <option>Não</option>
                 </select><br>
 
+            <br><label class="opcao">Seleciona a foto do carro</label><br>
+            <input type=file name=file><br>
             <br><input class="text" type="submit" id="btn" name="add_carbt" value="Adicionar">
 
         </form>
@@ -148,5 +150,6 @@
             <br><input  type="submit" id="btn2" name="ex_carro" value="Apagar">
 
         </form>
+
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DefMotors</title>
+
+    <style>
+        * { margin: 0; padding: 0;}
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 30%;
+            margin-left:33%;
+            margin-top:8%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 1.5%;
+        }
+
+        #customers tr {background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 2%;
+            padding-bottom: 2%;
+            text-align: left;
+            background-color:#4682B4;
+            color: white;
+        }
+        h1 {
+            position:absolute;
+            margin-left:36%;
+            top:5%;
+            color:white;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+
+</head>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <h1>Todos os funcionários</h1>
+
+    <table id="customers">
+            <tr>
+                    <th style="width:10%">ID</th>
+                    <th style="width:90%">Nome</th>
+            </tr>
+        {% for func in funcionarios %}
+            <tr>
+                <td>{{func[0]}}</td>
+                <td>{{func[1]}}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
