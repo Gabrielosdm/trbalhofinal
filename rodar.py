@@ -150,7 +150,7 @@ def consultacarros():
             return render_template('home.html')
         else:
             cursor = mysql.get_db().cursor()
-            return render_template('buscado_carro.html', consulta=consultar_carros(cursor, buscando))
+            return render_template('buscado_carro.html', carros=consultar_carros(cursor, buscando))
     return
 
 @app.route('/editar_top10')
@@ -185,6 +185,11 @@ def reservarr(idcarros):
     cursor = mysql.get_db().cursor()
     return render_template('reservar_carro.html', detalhes=pegar_detalhes(cursor,idcarros))
 
+@app.route('/reservando2/<idcarros>', methods={'GET','POST'})
+def reservarrr(idcarros):
+    cursor = mysql.get_db().cursor()
+    return render_template('reservar_carro.html', detalhes=pegar_detalhesss(cursor,idcarros))
+
 @app.route('/reserva_done/<idcarros>', methods={'GET','POST'})
 def reserva_feita(idcarros):
     if request.method == 'POST':
@@ -196,7 +201,7 @@ def reserva_feita(idcarros):
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        reservar(cursor, conn, reserva, idcarros)
+        reservar(cursor, conn, reserva, idcarros,idcarros)
         add_reserva(cursor, conn, nomecomp, cpfccomp, emailcomp)
 
 

@@ -28,7 +28,7 @@ def excluir_user(cursor,conn,funcid):
 
 
 def consultar_carros(cursor, buscando):
-    cursor.execute(f'SELECT nome FROM carros WHERE nome = "{buscando}" or marca = "{buscando}"')
+    cursor.execute(f'SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.preco FROM carros WHERE nome = "{buscando}"')
     consulta = cursor.fetchall()
     cursor.close()
     return consulta
@@ -52,9 +52,17 @@ def pegar_detalhes(cursor,idcarros):
 
     return detalhes
 
-def reservar(cursor,conn,reserva,idcar):
-    cursor.execute(f'UPDATE carros SET reservas = "{reserva}" WHERE idcarros = "{idcar}"')
+def pegar_detalhesss(cursor,nome):
+    cursor.execute(f'SELECT * FROM carros WHERE nome = "{nome}"')
+
+    detalhes= cursor.fetchall()
+
+    return detalhes
+
+def reservar(cursor,conn,reserva,idcar,nome):
+    cursor.execute(f'UPDATE carros SET reservas = "{reserva}" WHERE idcarros = "{idcar}" or nome="{nome}"')
     conn.commit()
+
 
 def add_reserva(cursor, conn, nome, cpf, email):
     cursor.execute(f'INSERT into concessionaria.reservas (nome,cpf,email) VALUES ("{nome}","{cpf}","{email}")')

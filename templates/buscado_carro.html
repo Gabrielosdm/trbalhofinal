@@ -3,17 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>DefMotors</title>
+
+    <style>
+
+        * { margin: 0; padding: 0; }
+
+        h1 {
+            position:absolute;
+            margin-left:39%;
+            top:5%;
+            color:white;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+        #det_car {
+            position:absolute;
+            border:none;
+            border-radius:1%;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            padding:3%;
+            margin-top:7%;
+            margin-left:37%;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size:180%;
+            color:white;
+        }
+        #botao2 {
+            border:none;
+            border-radius:3%;
+            font-size:68%;
+            padding:4%;
+            background-color:#191970;
+            color:white;
+        }
+        #botao2:hover {
+            background-color:#006400;
+        }
+        .titu{
+            color:black;
+        }
+
+    </style>
+
 </head>
-<body>
-    <table border="4">
-        {% for consul in consulta %}
-            <tr>
-                <td>{{consul}}</td>
-            </tr>
-        {% endfor %}
-    </table><br><br>
-    <form action="/">
-        <input type="submit" value="Ir para o início"><br>
-    </form>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <h1>Detalhes do Carro</h1>
+    {% for car in carros %}
+    <div id="det_car">
+        <label class="titu">Nome: </label> {{car[0]}}<br>
+        <br><label class="titu">Marca: </label> {{car[1]}}<br>
+        <br><label class="titu">Ano: </label> {{car[2]}}<br>
+        <br><label class="titu">Cor: </label> {{car[3]}}<br>
+        <br><label class="titu">Preço: </label> {{car[4]}}<br>
+
+        <form align="center" action="/reservando2/{{car[0]}}">
+            <br><input id="botao2" type="submit" value="Reservar">
+        </form>
+    {% endfor %}
+    </div>
 </body>
 </html>
