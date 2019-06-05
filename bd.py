@@ -65,7 +65,7 @@ def reservar(cursor,conn,reserva,idcar,nome):
 
 
 def add_reserva(cursor, conn, nome, cpf, email,nomecar):
-    cursor.execute(f'INSERT into concessionaria.reservas (nome,cpf,email,nomecar) VALUES ("{nome}","{cpf}","{email}","{nomecar}")')
+    cursor.execute(f'INSERT into concessionaria.reservas (nome,cpf,email,idcar) VALUES ("{nome}","{cpf}","{email}","{nomecar}")')
     conn.commit()
 
 def get_carros(cursor):

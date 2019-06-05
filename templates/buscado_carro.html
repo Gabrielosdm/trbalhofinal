@@ -45,10 +45,10 @@
         }
         #fotin{
             position:absolute;
-            width: 53%;
-            height: 65%;
+            width: 35%;
+            height: 52%;
             margin-top:7%;
-            margin-left:4.5%;
+            margin-left:1%;
         }
 
     </style>
@@ -58,7 +58,7 @@
 
     <h1>Detalhes do Carro</h1>
     {% for car in carros %}
-    <img id="fotin" src={{ base_url }}{{ car[8] }}>
+    <img id="fotin" src={{ base_url }}{{ car[5]}}>
     <div id="det_car">
         <label class="titu">Nome: </label> {{car[0]}}<br>
         <br><label class="titu">Marca: </label> {{car[1]}}<br>
