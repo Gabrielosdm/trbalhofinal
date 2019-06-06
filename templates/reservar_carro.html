@@ -3,18 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>DefMotors-reserva</title>
+
+    <style>
+
+        * { margin: 0; padding: 0; }
+
+        #foto {
+            position:absolute;
+            left:62%;
+            top:57%;
+        }
+
+        #block_reserva{
+            position:absolute;
+            top:20%;
+            left:40%;
+            text-align:center;
+            padding:2%;
+            border-radius:4px;
+            background-image: url("http://www.pptbackgrounds.org/uploads/gaussian-blur-powerpoint-templates.jpg");
+            font-family:Helvetica,Verdana,Arial;
+        }
+
+        .text{
+            position:relative;
+            padding:3%;
+            margin-bottom: 10%;
+            font-size: 100%;
+            border:none;
+            border-radius:5px;
+        }
+        #btn {
+            border-radius: 2px;
+            background-color:	#191970;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 110%;
+            padding: 4%;
+            margin-bottom: 1%;
+            width: 60%;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color:#000080;
+        }
+
+    </style>
+
 </head>
-<body>
+<body background="http://getwallpapers.com/wallpaper/full/9/4/8/516833.jpg">
+
+    <img id="foto" src="https://4.bp.blogspot.com/-Lu5f5adonoU/WNUdA4R96QI/AAAAAAAAmp0/gJvBKMpdJ100-8L9g51ExBxGXhkgfRcVACLcB/s1600/audi_PNG1770.png">
+
+
     {% for detalhe in detalhes %}
-    <form method="post" action="/reserva_done/{{detalhe[0]}}">
 
-        <label>Nome do comprador: </label><input type="text" name="nomeccomp"><br>
-        <label>CPF: </label><input type="text" name="cpfccomp"><br>
-        <label>E-mail: </label><input type="email" name="emailcomp"><br>
+    <form id="block_reserva" method="post" action="/reserva_done/{{detalhe[0]}}">
 
-        <input type="submit", value="Confirmar">
+        <input class="text" type="text" placeholder="Nome do comprador" name="nomeccomp"><br>
+        <input class="text" type="text" placeholder="CPF" name="cpfccomp"><br>
+        <input class="text" type="email" placeholder="E-mail" name="emailcomp"><br>
+
+        <input class="text" type="submit" id="btn" value="Confirmar">
 
     </form>
     {% endfor %}
+
 </body>
 </html>

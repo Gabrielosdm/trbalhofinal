@@ -39,7 +39,7 @@ def edit_top10(cursor,conn,top10,idcarros):
 
 def pegar_top10(cursor):
     cursor.execute(f'SELECT * '
-                   'FROM carros WHERE top10 = "1"')
+                   'FROM carros WHERE top10 = "1" and reservas = "0"')
 
     top10 = cursor.fetchall()
 
